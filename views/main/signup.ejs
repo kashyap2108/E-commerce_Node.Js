@@ -1,0 +1,24 @@
+<%- include ../base %>
+<link rel='stylesheet' type="text/css" href = "/css/signup_login.css" />
+<div class="container">
+        <h2>Signup form</h2>
+        <form method="post">
+        <div class="form-group">
+            <label for="name">Username:</label>
+            <input type="name" class="form-control" id="name" placeholder="Enter Username" name="name">
+        </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+          </div>
+          <div class="form-group">
+                <label for="password2">Confirm Password:</label>
+                <input type="password" class="form-control" id="password2" placeholder="Enter Password again" name="password2">
+            </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+</div>
