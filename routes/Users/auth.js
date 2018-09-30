@@ -76,10 +76,11 @@ router.post("/login", (req, res) => {
 // @access Public
 
 router.post("/register", (req, res) => {
-  console.log(req.body);
+  console.log("Register called possible");
+  console.log(req.get("host"));
   const { errors, isValid } = validateRegisterInput(req.body);
   // Check Form Validation
-
+  console.log(isValid);
   if (!isValid) {
     return res.status(400).json(errors);
   }

@@ -1,0 +1,18 @@
+.links {
+  /* float: left; */
+}
+
+.site-footer-menu {
+  list-style: none;
+}
+
+.site-footer-section-title {
+  margin-left: 40px;
+}
+.link {
+  color: grey;
+}
+
+.col-sm-8 {
+  float: right;
+}

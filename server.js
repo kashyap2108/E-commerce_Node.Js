@@ -19,7 +19,7 @@ mongoose
   .catch(err => console.log(err));
 
 //  Middlewares
-console.log(users, "hello");
+
 app.use(morgan("dev"));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -33,6 +33,6 @@ require("./config/passport")(passport);
 app.use("/users", users);
 app.use("/profile", profile);
 
-const port = 3000;
+const port = 5000;
 
 app.listen(port, () => console.log(`Listening on port ${port} ...`));

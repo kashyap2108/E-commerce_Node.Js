@@ -1,0 +1,165 @@
+.login-container {
+  background: linear-gradient(to bottom right, #feedf6, #fcf0e2);
+  text-align: center;
+  padding-top: 30px;
+  position: relative;
+  padding-bottom: 40px;
+}
+
+.login-box {
+  background-color: white;
+  padding: 20px 10px;
+  width: 400px;
+  display: inline-block;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.login-title {
+  display: block;
+  font-size: 32px;
+  margin-top: 15px;
+  color: #535766;
+}
+
+.login-third-party-login {
+  margin-top: 30px;
+}
+
+.login-button-container {
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+.login-button {
+  width: 162px;
+  height: 50px;
+  display: inline-block;
+  margin: 5px;
+  background-color: white;
+  border: 1px solid #bfc0c6;
+  border-radius: 5%;
+  cursor: pointer;
+}
+
+.fab {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 35px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook-f {
+  background: #3b5998;
+  color: white;
+  float: left;
+  font-size: 25px;
+  width: auto;
+  height: 39px;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+  float: left;
+  font-size: 25px;
+  width: auto;
+  height: 39px;
+}
+
+.facebook-button {
+}
+.login-button-info-text {
+  margin-top: 15px;
+  color: grey;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.login-info-text {
+  color: #94969f;
+  font-size: 12px;
+}
+.login-login-form {
+  display: block;
+  margin-top: 0em;
+  padding-left: 5px;
+}
+
+.login-input-container {
+  border: 1px solid #bfc0c6;
+  border-radius: 5px;
+  margin-left: 15px;
+  margin-right: 20px;
+  margin-bottom: 18px;
+}
+.login-input-item {
+  position: relative;
+}
+
+.login-user-input-email {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.login-user-input {
+  display: block;
+  color: #282c3f;
+  padding-right: 40px;
+  font-size: 15px;
+  width: 100%;
+  border: 0px;
+  padding: 15px;
+}
+
+.login-user-input-password {
+  border-top: 1px solid #bfc0c6;
+}
+
+.login-login-button-container {
+  padding: 10px 20px;
+  margin: 0px;
+  border: 0px;
+}
+
+.login-login-button {
+  background-color: #ff527b;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  padding: 15px;
+  display: block;
+  width: 100%;
+  border: 0px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  font-family: Whitney;
+  cursor: pointer;
+}
+
+.login-right-links {
+  float: right;
+}
+
+.login-info-text {
+  color: #94969f;
+  font-size: 12px;
+}
+
+.login-create-account-link {
+  margin-left: 5px;
+}
+
+.login-link {
+  cursor: pointer;
+  text-decoration: none;
+  color: #ea5e8b;
+  font-size: 13px;
+}

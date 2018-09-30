@@ -1,29 +1,11 @@
 const Validator = require("validator");
 const isEmpty = require("./is_empty");
 
-module.exports = function validateRegisterInput(data) {
+module.exports = function validataResetForgotPasswordInput(data) {
   let errors = {};
-  console.log(data);
-  data.username = !isEmpty(data.username) ? data.username : "";
-  data.email = !isEmpty(data.email) ? data.email : "";
+
   data.password = !isEmpty(data.password) ? data.password : "";
   data.password2 = !isEmpty(data.password2) ? data.password2 : "";
-
-  if (!Validator.isLength(data.username, { min: 4, max: 30 })) {
-    errors.username = "Username must be betwwen 4 and 30 characters!!";
-  }
-
-  if (Validator.isEmpty(data.username)) {
-    errors.username = "Username field is required!!";
-  }
-
-  if (Validator.isEmpty(data.email)) {
-    errors.email = "Email field is required!!";
-  }
-
-  if (!Validator.isEmail(data.email)) {
-    errors.email = "Email field is invalid!!";
-  }
 
   if (Validator.isEmpty(data.password)) {
     errors.password = "Password field is required!!";
