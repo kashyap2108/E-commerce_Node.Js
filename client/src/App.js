@@ -6,7 +6,7 @@ import store from "./store";
 
 import Footer from "./components/layout/Footer";
 import Copyright from "./components/layout/Copyright";
-import Landing from "./components/layout/Landing";
+import Home from "./components/layout/Home";
 import Navbar from "./components/layout/Navbar";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
@@ -50,7 +50,7 @@ class App extends Component {
             <Navbar />
             <hr />
             <div className="container">
-              <Route exact path="/" component={Landing} />
+              <Route exact path="/" component={Home} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/forgotpassword" component={ForgotPassword} />
