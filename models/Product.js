@@ -2,9 +2,9 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const ProductSchema = new Schema({
-  collection: {
+  subcollection_id: {
     type: Schema.Types.ObjectId,
-    ref: "collections"
+    ref: "sub_collections"
   },
   title: {
     type: String,
@@ -14,18 +14,17 @@ const ProductSchema = new Schema({
   price: {
     required: true
   },
-  quantity: [
-    {
-      color: {
-        type: String,
-        required: true
-      },
-      size: {
-        type: String,
-        required: true
-      }
-    }
-  ]
+  color: {
+    type: String,
+    required: true
+  },
+  size: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String
+  }
 });
 
 module.exports = Product = mongoose.model("product", ProductSchema);
