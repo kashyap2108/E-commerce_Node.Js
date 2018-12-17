@@ -12,6 +12,7 @@ const ProductSchema = new Schema({
     max: 40
   },
   price: {
+    type: Number,
     required: true
   },
   color: {

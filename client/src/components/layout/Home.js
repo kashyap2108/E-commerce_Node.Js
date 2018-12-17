@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Collections from "../collections/Collections";
+import Collections from "../collections/Collections/Collections";
 import Products from "../collections/Products";
 
 export default class Home extends Component {

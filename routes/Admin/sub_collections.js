@@ -43,7 +43,7 @@ router.get(
   }
 );
 
-// @route POST/admin/auth/sub_collections/add_sub_collection
+// @route POST/admin/sub_collections/add_sub_collection
 // @desc Add a collection object
 // @access Private
 
@@ -75,16 +75,33 @@ router.post(
           const newSubCollection = new SubCollections({
             collection_id: collection_id,
             sub_collection_name: sub_collection_name,
-            subcollection_description: sub_collection_description
+            sub_collection_description: sub_collection_description
           });
 
           newSubCollection
             .save()
             .then(sub_collection => res.json(sub_collection))
-            .catch(err => console.log(err));
+            .catch(err => res.json(err));
         }
       }
     );
+  }
+);
+
+router.delete(
+  "/delete_sub_collection/:id",
+  admin_passport.authenticate("admin-passport", { session: false }),
+  (req, res) => {
+    SubCollections.findById(req.params.id)
+      .then(subcollection => {
+        console.log("Sub Collection Found!!");
+        subcollection.remove().then(() => res.json({ success: true }));
+      })
+      .catch(err =>
+        res
+          .status(404)
+          .json({ subcollectionnotfound: "No SubCollection found!!" })
+      );
   }
 );
 

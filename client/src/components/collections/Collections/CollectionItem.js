@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../css/collections/Collections.css";
+import "../../css/collections/Collections.css";
 
 export default class CollectionItem extends Component {
   state = {

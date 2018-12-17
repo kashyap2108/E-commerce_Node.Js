@@ -20,7 +20,7 @@ router.get("/", (req, res) => {
   res.json({ msg: "Auth Route Works!!" });
 });
 
-// @route POST/users/login
+// @route POST/users/auth/login
 // @desc Authenticate user details and redirect to respective page
 // @access Private
 
@@ -112,7 +112,7 @@ router.post("/register", (req, res) => {
   });
 });
 
-// @route GET/users/current
+// @route GET/users/auth/current
 // @desc  Return current user
 // @access Private
 

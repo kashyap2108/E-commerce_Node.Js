@@ -7,7 +7,7 @@ const admin_passport = require("passport");
 const validateProductsInput = require("../../validations/products");
 
 // Load Collections model
-const Products = require("../../models/Products");
+const Products = require("../../models/Product");
 
 // @route GET/admin/products/test/
 // @desc Tests admin Collections route
@@ -28,6 +28,7 @@ router.get(
     const errors = {};
     Products.find()
       .then(products => {
+        console.log("hello", products);
         if (!products || products.length === 0) {
           errors.products = "There are no Products!!";
           return res.status(400).json(errors);

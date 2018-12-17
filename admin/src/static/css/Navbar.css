@@ -1,0 +1,9 @@
+.form-control.mr-sm-2 {
+  border-color: antiquewhite;
+}
+
+.fa.fa-search,
+.fas.fa-shopping-cart,
+.btn.btn-link {
+  color: darkslategray;
+}

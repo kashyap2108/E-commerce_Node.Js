@@ -21,23 +21,28 @@ router.get("/test", (req, res) => {
 // @desc Get the list of all collections
 // @access Private
 
-router.get("/", (req, res) => {
-  const errors = {};
-  Collections.find()
-    .then(collections => {
-      if (!collections || collections.length === 0) {
-        errors.collections = "There are no collections!!";
-        return res.status(400).json(errors);
-      }
+router.get(
+  "/",
+  admin_passport.authenticate("admin-passport", { session: false }),
+  (req, res) => {
+    console.log("fucks!!");
+    const errors = {};
+    Collections.find()
+      .then(collections => {
+        if (!collections || collections.length === 0) {
+          errors.collections = "There are no collections!!";
+          return res.status(400).json(errors);
+        }
 
-      res.json(collections);
-    })
-    .catch(err =>
-      res.status(404).json({ collections: "There are no collections!!" })
-    );
-});
+        res.json(collections);
+      })
+      .catch(err =>
+        res.status(404).json({ collections: "There are no collections!!" })
+      );
+  }
+);
 
-// @route POST/admin/auth/collections/add_collection
+// @route POST/admin/collections/add_collection
 // @desc Add a collection object
 // @access Private
 
@@ -71,11 +76,24 @@ router.post(
             .save()
             .then(collection => res.json(collection))
             .catch(err => console.log(err));
-
-
         }
       }
     );
+  }
+);
+
+router.delete(
+  "/delete_collection/:id",
+  admin_passport.authenticate("admin-passport", { session: false }),
+  (req, res) => {
+    Collections.findById(req.params.id)
+      .then(collection => {
+        console.log("Collection Found!!");
+        collection.remove().then(() => res.json({ success: true }));
+      })
+      .catch(err =>
+        res.status(404).json({ collectionnotfound: "No Collection found!!" })
+      );
   }
 );
 
