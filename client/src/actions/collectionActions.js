@@ -1,5 +1,10 @@
 import axios from "axios";
-import { GET_ERRORS, GET_COLLECTIONS, GET_SUB_COLLECTIONS , GET_PRODUCTS } from "./types";
+import {
+  GET_ERRORS,
+  GET_COLLECTIONS,
+  GET_SUB_COLLECTIONS,
+  GET_PRODUCTS
+} from "./types";
 
 export const getCollections = () => dispatch => {
   console.log("getcollections action called!!");
@@ -40,10 +45,10 @@ export const getSubCollections = () => dispatch => {
     });
 };
 
-export const getProducts = () => dispatch => {
+export const getProducts = subcollection_id => dispatch => {
   console.log("getproducts called!!");
   axios
-    .get("/products")
+    .get(`/products/${subcollection_id}`)
     .then(res => {
       console.log("products action", res.data);
       dispatch({

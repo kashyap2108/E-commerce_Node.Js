@@ -27,9 +27,9 @@ class Collections extends Component {
     //console.log(id, this.state.collection_id);
   };
 
-  handleSubCollectionClick = id =>{
-    console.log(id);
-  }
+  handleSubCollectionClick = id => {
+    this.props.getProducts(id);
+  };
   render() {
     console.log(this.props);
     const collections = this.props.collections.collections;
@@ -58,10 +58,10 @@ class Collections extends Component {
 
           console.log(subcollections);
           const SubCollectionComponent = subcollections.map(subcollection => (
-            <li onClick={() => this.handleSubCollectionClick(2)}>
-             
+            <li
+              onClick={() => this.handleSubCollectionClick(subcollection._id)}
+            >
               {subcollection.sub_collection_name}
-             
             </li>
           ));
           return (
@@ -108,7 +108,10 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ getCollections, getSubCollections }, dispatch);
+  return bindActionCreators(
+    { getCollections, getSubCollections, getProducts },
+    dispatch
+  );
 }
 
 export default connect(

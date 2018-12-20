@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const admin_passport = require("passport");
+const multer = require("multer");
+const upload = multer({ storage: multer.memoryStorage() });
 
 //Load validation
 const validateProductsInput = require("../../validations/products");
@@ -51,37 +53,44 @@ router.get(
 router.post(
   "/add_product",
   admin_passport.authenticate("admin-passport", { session: false }),
+  upload.single("product_image"),
   (req, res) => {
-    const { errors, isValid } = validateProductsInput(req.body);
-
     console.log(req.body);
-    if (!isValid) {
-      return res.status(400).json(errors);
-    }
+    console.log(req.file);
+    // console.log(req.body);
+    // // console.log(req);
+    // console.log("hello");
+    // const { errors, isValid } = validateProductsInput(req.body);
 
-    newProduct = {};
-    newProduct.subcollection_id = req.body.subcollection_id
-      ? req.body.subcollection_id
-      : "";
-    newProduct.title = req.body.title ? req.body.title : "";
+    // // console.log(req.body);
+    // if (!isValid) {
+    //   return res.status(400).json(errors);
+    // }
 
-    newProduct.price = req.body.price ? req.body.price : "";
+    // newProduct = {};
 
-    newProduct.color = req.body.color ? req.body.color : "";
-    newProduct.size = req.body.size ? req.body.size : "";
-    newProduct.description = req.body.description ? req.body.description : "";
+    // newProduct.subcollection_id = req.body.subcollection_id
+    //   ? req.body.subcollection_id
+    //   : "";
+    // newProduct.title = req.body.title ? req.body.title : "";
 
-    Products.findOne({ tile: product.title }).then(product => {
-      if (product) {
-        errors.product = "Product Already exists!!";
-        return res.status(400).json(errors);
-      } else {
-        new Products(newProduct)
-          .save()
-          .then(product => res.json(product))
-          .catch(err => console.log(err));
-      }
-    });
+    // newProduct.price = req.body.price ? req.body.price : "";
+
+    // newProduct.color = req.body.color ? req.body.color : "";
+    // newProduct.size = req.body.size ? req.body.size : "";
+    // newProduct.description = req.body.description ? req.body.description : "";
+
+    // Products.findOne({ title: product.title }).then(product => {
+    //   if (product) {
+    //     errors.product = "Product Already exists!!";
+    //     return res.status(400).json(errors);
+    //   } else {
+    //     new Products(newProduct)
+    //       .save()
+    //       .then(product => res.json(product))
+    //       .catch(err => console.log(err));
+    //   }
+    // });
   }
 );
 
